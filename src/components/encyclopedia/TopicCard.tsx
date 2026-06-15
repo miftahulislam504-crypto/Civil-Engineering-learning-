@@ -1,12 +1,19 @@
 import { Link } from 'react-router-dom'
 import { Eye } from 'lucide-react'
-import { type EncyclopediaTopic } from '@/types/encyclopedia.types'
-import { ENC_CATEGORY_COLORS, ENC_CATEGORY_ICONS, ENC_CATEGORY_LABELS } from '@/types/encyclopedia.types'
+import {
+  type EncyclopediaTopic,
+  type TopicSummary,
+  ENC_CATEGORY_COLORS,
+  ENC_CATEGORY_ICONS,
+  ENC_CATEGORY_LABELS,
+} from '@/types/encyclopedia.types'
 import { cn } from '@/utils'
 
+type TopicLike = EncyclopediaTopic | TopicSummary
+
 interface Props {
-  topic: EncyclopediaTopic
-  view: 'grid' | 'list'
+  topic: TopicLike
+  view:  'grid' | 'list'
 }
 
 export default function TopicCard({ topic, view }: Props) {

@@ -140,7 +140,7 @@ export async function getCourseProgress(uid: string, courseId: string) {
 export async function getAllProgress(uid: string) {
   const col  = collection(db, 'user_progress', uid, 'courses')
   const snap = await getDocs(col)
-  return snap.docs.map((d) => ({ courseId: d.id, ...d.data() }))
+  return snap.docs.map((d) => ({ courseId: d.id, isCompleted: false, progressPercent: 0, completedLessons: [], lastAccessedLesson: '', startedAt: new Date(), completedAt: null, ...d.data() } as import('@/types/course.types').CourseProgress))
 }
 
 // ─── Leaderboard ──────────────────────────────────────────────────────────────

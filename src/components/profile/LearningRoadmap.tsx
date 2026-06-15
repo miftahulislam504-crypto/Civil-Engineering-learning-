@@ -135,7 +135,7 @@ const ROADMAPS: Partial<Record<UserRole, { title: string; steps: Step[] }>> = {
   },
 }
 
-const fallbackRoadmap = {
+const fallbackRoadmap: { title: string; steps: Step[] } = {
   title: 'Professional Growth Path',
   steps: [
     {
