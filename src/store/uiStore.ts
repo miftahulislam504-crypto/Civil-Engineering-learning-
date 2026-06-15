@@ -5,6 +5,7 @@ interface UIState {
   theme:          'dark' | 'light'
   setSidebarOpen: (open: boolean) => void
   toggleSidebar:  () => void
+  toggleTheme:    () => void
   setTheme:       (theme: 'dark' | 'light') => void
 }
 
@@ -13,5 +14,6 @@ export const useUIStore = create<UIState>((set) => ({
   theme:          'dark',
   setSidebarOpen: (open)  => set({ sidebarOpen: open }),
   toggleSidebar:  ()      => set((s) => ({ sidebarOpen: !s.sidebarOpen })),
+  toggleTheme:    ()      => set((s) => ({ theme: s.theme === 'dark' ? 'light' : 'dark' })),
   setTheme:       (theme) => set({ theme }),
 }))
